@@ -49,3 +49,8 @@ permalink: /categories/an-awesome-category/
 # License
 
 The contents of this repository is licensed under [The MIT License.](https://opensource.org/licenses/MIT)
+
+![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/正规方程效果图.JPG)
+![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/单自变量梯度下降.JPG)
+![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/多变量梯度下降_散点图.JPG)
+![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/多自变量梯度下降.JPG)
