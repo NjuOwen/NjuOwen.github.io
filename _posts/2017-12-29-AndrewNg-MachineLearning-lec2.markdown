@@ -7,11 +7,11 @@ categories: [machine leaning,linear regression,gradient descent,normal equation]
 
 ---
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'],['\\(','\\)']]} }); </script> <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
-#线性回归
+#**线性回归**
 
 这一讲的主题是线性回归，而线性回归的本质就是利用最小二乘法找到假设函数。这里介绍了梯度下降（微分角度）和正规方程（线代角度）两种方法解决最小二乘法
 
-#正规方程
+#**正规方程**
 
 假设自变量为$X$（$X_0=1$）,因变量为$Y$,假设函数为$Y = \theta^\top X$。根据正规方程$\theta =（X^\top X）X^\top Y$即可简洁地求出参数$\theta$。
 matlab代码如下：
@@ -41,7 +41,8 @@ mesh(x,y,z);
  ![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2017-12-29-AndrewNg-MachineLearning-lec2/fig1.JPG)
 
 
-#梯度下降
+#**梯度下降**
+
 设$\theta$的初始值为$\mathbf0$,样本个数为m，因为导数方向为下降最快方向，所以
 通过$\theta_i := \theta_i -\alpha\Sigma_{j=1}^m(h_\theta(x^{(j)})-y^{(j)})\cdot x_i^{(j)}$进行迭代，直到前后两次结果产生的$\theta$的欧氏距离小于某一阈值，结束迭代。但是需要指出的是，梯度下降方法相对于正规方程，结果必然存在误差。阈值和学习速度$\alpha$也都需要调试。
 假设只有一个自变量：房屋面积，$\theta$的有两个参数，此时方面形象地展示梯度下降法。
