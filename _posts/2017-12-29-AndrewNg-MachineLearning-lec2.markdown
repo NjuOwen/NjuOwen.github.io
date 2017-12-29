@@ -6,9 +6,7 @@ date:   2017-12-29
 categories: [machine leaning,linear regression,gradient descent,normal equation]
 
 ---
-<script type="text/javascript"
-src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'],['\\(','\\)']]} }); </script> <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script> 
 #线性回归
 
 这一讲的主题是线性回归，而线性回归的本质就是利用最小二乘法找到假设函数。这里介绍了梯度下降（微分角度）和正规方程（线代角度）两种方法解决最小二乘法
