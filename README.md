@@ -1,32 +1,51 @@
-# About
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kronik3r/daktilo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
-This is my blog based on jekyll. And I change the style and interactive. If you want to use this model of the blog. **Please give a star at this repository**. Then you can clone it as your blog model.
+# Daktilo
+Daktilo is a [Jekyll](jekyllrb.com) theme with a minimal design inspired from typewriters.
 
-You can visit [here](http://gaohaoyang.github.io) to see this blog.
+# More info and Live preview
+[Click here](http://daktilo.github.io/) to see the theme in action.
 
+# Features
+- Fully responsive
+- [Disqus](https://disqus.com/) integration for comments.
+- Google Analytics integration.
+- Syntax Highlighter (using [highlight.js](https://highlightjs.org/)).
+- Support for categories.
+- Font-Awesome Icons.
+- Optimized for SEO.
+- Coolest [404 page ever](http://electrik-frog.com/daktilo/404.html).
+
+# How to use it
+Start by cloning the repository, then check the `_config.yml` file and change it accordingly.
+Note that the `title` property is what will be displayed as logo.
+
+Finally execute `jekyll serve --watch` and head to [localhost:4000](http://127.0.0.1:4000) to see the result.
+
+# Using categories
+Categories are little bit tricky. Please make sure to do the following for each category:
+
+- Create a file within `categories` folder with the name of your category
+For example let's say that we have a category called `An Awesome Category` you will need to add an `an-awesome-category.html` file with this content:
+
+``` html
+---
+layout: category
+category: an-awesome-category
+permalink: /categories/an-awesome-category/
 ---
 
-这是我的博客，基于 jekyll。我改了所有默认的样式和交互。如果你想使用这个博客模板。**请先在这个仓库上点个star吧**，这也是对我的肯定和鼓励，谢谢了。然后你可以克隆这个仓库用作你自己的博客。
+```
 
-博客访问地址：[点击这里](http://gaohaoyang.github.io)
+- Create an entry inside `_data/categories.yml`
 
-**使用时请注明模板来源:  Jekyll theme by [Gaohaoyang](https://github.com/Gaohaoyang/gaohaoyang.github.io)**
+``` html
+- slug: an-awesome-category
+  name: An Awesome Category
+```
 
-<!--
+- Then you will see it in the footer in the `Explore` section.
 
-## 被引用信息
+# License
 
-使用了我的模板并写明来源的人：   
-
-* [dreamholy](http://dreamholy.github.io/)
-
-没有注明来源的人：
-
-* [yangshuailing](http://yangshuailing.github.io/com/)
-* [huapu728](http://huapu728.github.io/)
-* [greatbuger](http://greatbuger.github.io/) 
-
-
--->
-
-
+The contents of this repository is licensed under [The MIT License.](https://opensource.org/licenses/MIT)
