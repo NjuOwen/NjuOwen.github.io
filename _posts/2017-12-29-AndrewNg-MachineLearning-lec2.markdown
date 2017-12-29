@@ -37,9 +37,8 @@ mesh(x,y,z);
 %y_hat =  theta(1)+theta(2)*57+theta(3)*2
 ```
 预测模型如下 自变量：房屋面积，卧室数 应变量：房租价格  
- ![](D:/bear.JPG)
 
- ![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/正规方程效果图.JPG)
+ ![](https://github.com/NjuOwen/NjuOwen.github.io/blob/master/%E6%AD%A3%E8%A7%84%E6%96%B9%E7%A8%8B%E6%95%88%E6%9E%9C%E5%9B%BE.JPG)
 
 
 #梯度下降
