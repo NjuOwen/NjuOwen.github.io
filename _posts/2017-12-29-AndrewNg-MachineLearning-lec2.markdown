@@ -6,7 +6,7 @@ date:   2017-12-29
 categories: [machine leaning,linear regression,gradient descent,normal equation]
 
 ---
-<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'],['\\(','\\)']]} }); </script> <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script> 
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'],['\\(','\\)']]} }); </script> <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 #线性回归
 
 这一讲的主题是线性回归，而线性回归的本质就是利用最小二乘法找到假设函数。这里介绍了梯度下降（微分角度）和正规方程（线代角度）两种方法解决最小二乘法
@@ -36,8 +36,9 @@ mesh(x,y,z);
 %测试 测试点 房屋价格：3300 房屋面积：57 卧室数量：2 房屋年龄：36
 %y_hat =  theta(1)+theta(2)*57+theta(3)*2
 ```
-预测模型如下 自变量：房屋面积，卧室数 应变量：房租价格   
- <img src="D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/正规方程效果图.JPG" width = "400" height = "300" alt="图片名称" align=center />
+预测模型如下 自变量：房屋面积，卧室数 应变量：房租价格  
+ ![](D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/正规方程效果图.JPG)
+
 
 #梯度下降
 设$\theta$的初始值为$\mathbf0$,样本个数为m，因为导数方向为下降最快方向，所以
@@ -66,7 +67,7 @@ z = theta(1)+theta(2)*x+theta(3)*y;
 mesh(x,y,z);
 ```
 $\theta$从$\mathbf0$，不断进行梯度下降，直到滑落到代价函数$J(\theta)$的最低点
- <img src="D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/单自变量梯度下降.JPG" width = "400" height = "300" alt="图片名称" align=center />
+  ![](D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/单自变量梯度下降.JPG)
 
 当自变量为房屋价格，卧室数量时
 matlab代码如下：
@@ -110,7 +111,7 @@ mesh(x,y,z);
 %y_hat =  theta(1)+theta(2)*57+theta(3)*2
 ```
 样本散点图：
- <img src="D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/多变量梯度下降_散点图.JPG" width = "400" height = "300" alt="图片名称" align=center />
+![](D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/多变量梯度下降_散点图.JPG)
 
 预测模型：
- <img src="D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/多自变量梯度下降.JPG" width = "400" height = "300" alt="图片名称" align=center />
+![](D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/多自变量梯度下降.JPG)
