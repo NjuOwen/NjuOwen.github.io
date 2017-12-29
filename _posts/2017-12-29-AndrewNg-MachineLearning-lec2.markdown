@@ -38,7 +38,7 @@ mesh(x,y,z);
 ```
 预测模型如下 自变量：房屋面积，卧室数 应变量：房租价格  
 
- ![](https://github.com/NjuOwen/NjuOwen.github.io/blob/master/%E6%AD%A3%E8%A7%84%E6%96%B9%E7%A8%8B%E6%95%88%E6%9E%9C%E5%9B%BE.JPG)
+ ![](./NjuOwen.github.io/正规方程效果图.JPG )
 
 
 #梯度下降
