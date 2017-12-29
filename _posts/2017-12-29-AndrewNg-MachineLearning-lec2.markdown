@@ -37,7 +37,8 @@ mesh(x,y,z);
 %y_hat =  theta(1)+theta(2)*57+theta(3)*2
 ```
 预测模型如下 自变量：房屋面积，卧室数 应变量：房租价格  
- ![](D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/正规方程效果图.JPG)
+
+ ![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/正规方程效果图.JPG)
 
 
 #梯度下降
@@ -67,7 +68,7 @@ z = theta(1)+theta(2)*x+theta(3)*y;
 mesh(x,y,z);
 ```
 $\theta$从$\mathbf0$，不断进行梯度下降，直到滑落到代价函数$J(\theta)$的最低点
-  ![](D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/单自变量梯度下降.JPG)
+![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/单自变量梯度下降.JPG)
 
 当自变量为房屋价格，卧室数量时
 matlab代码如下：
@@ -111,7 +112,6 @@ mesh(x,y,z);
 %y_hat =  theta(1)+theta(2)*57+theta(3)*2
 ```
 样本散点图：
-![](D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/多变量梯度下降_散点图.JPG)
-
+![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/多变量梯度下降_散点图.JPG)
 预测模型：
-![](D:/GitHub/GitHub.io/2017-12-29-AndrewNg-MachineLearning-lec2/多自变量梯度下降.JPG)
+![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/多自变量梯度下降.JPG)
