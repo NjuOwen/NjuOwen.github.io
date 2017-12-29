@@ -37,6 +37,7 @@ mesh(x,y,z);
 %y_hat =  theta(1)+theta(2)*57+theta(3)*2
 ```
 预测模型如下 自变量：房屋面积，卧室数 应变量：房租价格  
+ ![](D:/bear.JPG)
 
  ![](C:/Users/文昊/Documents/GitHub/NjuOwen.github.io/img/2017-12-29-AndrewNg-MachineLearning-lec2/正规方程效果图.JPG)
 
