@@ -51,4 +51,47 @@ legend('training data','t = 0.3','t = 0.8','t = 2',' t = 10','t = 50');
 
 #逻辑回归
 
-逻辑回归与线性回归的思路非常类似，只是$Y$值只能取0或者1，我们可以认为0，1是标签值，那么逻辑回归其实是在做分类。
+逻辑回归与线性回归的思路非常类似，只是$Y$值只能取0或者1，我们可以认为0，1是标签值，那么逻辑回归其实是在做分类。此时假设函数为$h_\theta(x)=g(\theta^Tx)=\frac{1}{1+e^{-\theta^Tx}}$,其中$g(z)=\frac{1}{1+e^{-z}}$。那么$P(y=1|x;\theta)=h_\theta(x)$(给定$x$在$\theta$下，$y=1$的概率)。$P(y=0|x;\theta)=1-h_\theta(x)$(给定$x$在$\theta$下，$y=0$的概率)。可合并写为$P(y|x;\theta)=h_\theta(x)^y\cdot(1-h_\theta(x))^{1-y}$。此时参数似然性$L(\theta)=P(y|x;\theta)=\prod_iP(y^{(i)}|x^{(i)};\theta)$，$L(\theta)$达到最大时找到极大似然参数$\theta$。利用梯度上升法求解，$\theta := \theta+\alpha\nabla_\theta l(\theta)$,其中$\frac{\mathrm{d}}{\mathrm{d}\theta_j} l(\theta) = \Sigma_{i=1}^m (y^{(i)}-h_\theta(x^{(i)})) \cdot x_j^{(i)}$
+matlab代码如下
+```matlab
+clc,clear
+x_0 = [2,0.5,1,2,3,4,1.5,1.2]';
+y_0 = [2.6,2,1,1,1.5,1.2,1.5,3]';
+x_1 = [2.6,2.5,4.5,4.5,3.8,3.2,1.8,3,3.5]';
+y_1 = [4.5,2.5,2,3,3.4,3.5,4,3.2,3]';
+%散点图
+plot(x_0,y_0,'ko');%原点是类别0
+hold on
+plot(x_1,y_1,'r^');%三角是类别1
+axis([0,5,0,5]);
+Y = [zeros(1,size(x_0,1)),ones(1,size(x_1,1))]';
+X = [x_0,y_0;x_1,y_1];
+x0 = ones(size(X,1),1);
+X = [x0 X];
+a = 0.00005;
+theta = zeros(size(X,2),1);
+new_theta = zeros(size(X,2),1);
+d = 100;
+%梯度上升法，找到极大似然参数
+while (d>0.00001)
+            new_theta(1) = theta(1) + a*(sum((Y-1./(1+exp(-X*theta))).*X(:,1)));
+            new_theta(2) = theta(2) + a*(sum((Y-1./(1+exp(-X*theta))).*X(:,2)));
+            new_theta(3) = theta(3) + a*(sum((Y-1./(1+exp(-X*theta))).*X(:,3)));
+            dst = [theta';new_theta'  ];
+            d = pdist(dst,'euclidean');
+            theta = new_theta;
+end
+x =  0 : 0.1 : 5;
+y = (-theta(2)*x - theta(1))/theta(3);
+plot(x,y,'b-');
+```
+分类模型：
+![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2017-12-30-AndrewNg-MachineLearning-lec3/fig2.JPG)
+
+验证模型：
+假设有样本$x_0(1,2.5,3.5)$,则$h_\theta(x)=0.9216$ 表明$x_0$有92.16%的概率属于类别1。而假设有样本$x_1(1,2.5,2.4)$，则$h_\theta(x)=0.4220$ 表明 $x_1$有58.8%的概率属于类别0。如果设阈值为50%，则可以清楚地进行分类。
+但是这个模型是有缺陷的，对于$x(1,2.5,2.5)$这个样本点，分类器讲它认作是类别0的。因为这只是一个线性的决策边界，必然局限，如果采用非线性的决策边界，分类效果会更好。
+
+#多类分类问题
+
+多类分类问题其实只是双类分类问题的拓展，每次只要保留一类，剩下的为一类，即可找到该类所有的决策边界。
