@@ -10,7 +10,8 @@ categories: [machine leaning,locally weighted regression,logistic regression,cla
 
 #局部加权回归
 
-现实生活中很多情况并不可以作简单的一次线性回归，有时必须用高次线性回归，但在选取次数上十分麻烦，次数选取不好就会出现欠拟合或是过拟合的情况。为了规避这麻烦，可以采用局部加权回归。通过权值函数$W^{(i)}=e^{-\frac{(x^{(i)}-x)^2}{2\tau^2}}$(钟形函数)对代价函数$J(\theta)$进行修正，削弱远离预测点的样本点对回归结果的影响。
+接着上一讲的线性回归继续，现实生活中很多情况并不可以作简单的一次线性回归，有时必须用高次线性回归，但在选取次数上十分麻烦，次数选取不好就会出现欠拟合或是过拟合的情况。为了规避这麻烦，可以采用局部加权回归。通过权值函数$W^{(i)}=e^{-\frac{(x^{(i)}-x)^2}{2\tau^2}}$(钟形函数)对代价函数$J(\theta)$进行修正，削弱远离预测点的样本点对回归结果的影响。
+LWR方法的目标是对每一预测点确定参数$\theta$，使得代价函数$J(\theta)=\Sigma_iW^{(i)}(y^{(i)}-\theta^TX^{(i)})^2$最小。由正规方程可以解出$\theta = (X^TWX)^{-1}X^TWY$($W$为$m*m$对角阵)。
 matlab代码如下：
 ```matlab
 %局部加权回归LWR
@@ -44,8 +45,10 @@ end
 legend('training data','t = 0.3','t = 0.8','t = 2',' t = 10','t = 50');
 
 ```
-在LWR方法中，$\tau$的选取对结果至关重要。
-
-
 预测模型：
-![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2017-12-29-AndrewNg-MachineLearning-lec2/fig4.JPG)
+![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2017-12-30-AndrewNg-MachineLearning-lec3/fig1.JPG)
+在LWR方法中，$\tau$的选取对结果至关重要。当$\tau=50$时，出现欠拟合。当$\tau=0.3$时，出现过拟合。而当$\tau=0.8$或$\tau=2$时，结果非常好的。可以这样理解，从权值函数$W$出发，当$\tau$很小时，距离预测点较远的样本点的代价函数权值很小，易造成过拟合。而当$\tau$很大时，距离预测点较远的样本点的代价函数权值依然很大，此时LWR与简单的线性回归几乎无差别，易造欠拟合。
+
+#逻辑回归
+
+逻辑回归与线性回归的思路非常类似，只是$Y$值只能取0或者1，我们可以认为0，1是标签值，那么逻辑回归其实是在做分类。
