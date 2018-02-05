@@ -2,7 +2,7 @@
 layout: post
 title:  "AndrewNg-MachineLearning-Lecture4 "
 subtitle: “牛顿法 指数分布族 广义线性回归”
-date:   2017-02-05
+date:   2018-02-05
 categories: [machine leaning,newtons method,exponential family]
 
 ---
