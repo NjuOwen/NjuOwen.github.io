@@ -12,7 +12,7 @@ categories: [machine leaning,newtons method,exponential family]
 之前在寻找使代价函数最小的参数时，都在使用梯度下降法，而本次将介绍牛顿法，梯度下降法是一阶收敛的，牛顿法是二阶收敛的，因此牛顿法比梯度下降法快的多，从实际操作中也是可以看的出来的。先来看最简单的牛顿法，对于$f(\theta)$要找到$\theta$，使得$f(\theta)=0$。首先将 $\theta$ 初始化为 $\theta^{(0)}$,令$\Delta=\frac{f(\theta^{(0)})}{f'(\theta^{(0)})}$,对$
 \theta$进行一次更新:$\theta^{(1)} = \theta^{(0)} - \Delta$。一般地，更新算式为:$\theta^{(t+1)} = \theta^{(t)} - \frac{f(\theta^{(t)})}{f'(\theta^{(t)})}$。那么现在， 对于似然函数$L(\theta)$,要找到$\theta$,使得$L'(\theta)=0$，则更新算法为$\theta^{(t+1)} = \theta^{(t)} - \frac{L'(\theta^{(t)})}{L''(\theta^{(t)})}$。
 更一般地，推广到多元：$\theta^{(t+1)} = \theta^{(t)} - H^{-1}\nabla L$，其中$H$为Hessian矩阵,也可写为$\nabla^2 L$。$\nabla L$为梯度矩阵,
-$\nabla L = \begin{bmatrix} \frac{dL}{dx_1}\\ \frac{dL}{dx_2}\\ \vdots\\ \frac{dL}{dx_n}\end{bmatrix}$ $\nabla^2 L = \begin{bmatrix} \frac{d^2L}{dx_1^2}&\frac{d^2L}{dx_1dx_2} &\cdots &\frac{d^2L}{dx_1dx_n}\\ \frac{d^2L}{dx_2dx_1}&\frac{d^2L}{dx_2^2} &\cdots &\frac{d^2L}{dx_2dx_n}\\ \vdots & \vdots & \ddots &\vdots\\ \frac{d^2L}{dx_ndx_1}&\frac{d^2L}{dx_ndx_2} &\cdots &\frac{d^2L}{dx_n^2}\\ \end{bmatrix}$
+$$\nabla L = \begin{bmatrix} \frac{dL}{dx_1}\\ \frac{dL}{dx_2}\\ \vdots\\ \frac{dL}{dx_n}\end{bmatrix}     \nabla^2 L = \begin{bmatrix} \frac{d^2L}{dx_1^2}&\frac{d^2L}{dx_1dx_2} &\cdots &\frac{d^2L}{dx_1dx_n}\\ \frac{d^2L}{dx_2dx_1}&\frac{d^2L}{dx_2^2} &\cdots &\frac{d^2L}{dx_2dx_n}\\ \vdots & \vdots & \ddots &\vdots\\ \frac{d^2L}{dx_ndx_1}&\frac{d^2L}{dx_ndx_2} &\cdots &\frac{d^2L}{dx_n^2}\\ \end{bmatrix}$$
 将之前用梯度下降法解决的问题用牛顿法解决，最优解与之前一样，但是求解速度快的多。
 
 matlab代码如下：
