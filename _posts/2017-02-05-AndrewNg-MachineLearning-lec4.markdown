@@ -8,7 +8,7 @@ categories: [machine leaning,newtons method,exponential family]
 ---
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'],['\\(','\\)']]} }); </script> <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 
-#牛顿法
+#**牛顿法**
 
 之前在寻找使代价函数最小的参数时，都在使用梯度下降法，而本次将介绍牛顿法，梯度下降法是一阶收敛的，牛顿法是二阶收敛的，因此牛顿法比梯度下降法快的多，从实际操作中也是可以看的出来的。先来看最简单的牛顿法，对于$f(\theta)$要找到$\theta$，使得$f(\theta)=0$。首先将 $\theta$ 初始化为 $\theta^{(0)}$,令$\Delta=\frac{f(\theta^{(0)})}{f'(\theta^{(0)})}$,对$
 \theta$进行一次更新:$\theta^{(1)} = \theta^{(0)} - \Delta$。一般地，更新算式为:$\theta^{(t+1)} = \theta^{(t)} - \frac{f(\theta^{(t)})}{f'(\theta^{(t)})}$。那么现在， 对于似然函数$L(\theta)$,要找到$\theta$,使得$L'(\theta)=0$，则更新算法为$\theta^{(t+1)} = \theta^{(t)} - \frac{L'(\theta^{(t)})}{L''(\theta^{(t)})}$。
