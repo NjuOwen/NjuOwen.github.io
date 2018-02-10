@@ -74,3 +74,15 @@ $$A=2\Sigma^{-1}(\mu_1-\mu_0)\\b=\mu_1^T\Sigma^{-1}\mu_1-\mu_0^T\Sigma^{-1}\mu_0
 （2）当数据服从高斯分布时，GDA效果更好
 （3）当训练样本数很大时，根据中心极限定理，数据将无限逼近于高斯分布，则此时GDA的表现效果会很好
 #**朴素贝叶斯方法**
+现在来讨论一个垃圾邮件分类器，一封邮件可以用一个向量$x\in R^n$表示，这个向量对应一个字典，如果字典$x_i$对应的词在邮件中出现，则对应的$x_i$为1，否则为0。假设$x_i$在给定$y$时是条件独立的，这个假设也是称为“朴素”的原因。则模型参数如下：
+$$\phi_{i|y=1}=p(x_i|y=1)\\\phi_{i|y=0}=p(x_i|y=0)\\\phi_y=p(y=1)$$
+作出极大似然估计：
+$$\phi_{j|y=1}=\frac{\Sigma_{i=1}^{m}I \lbrace x_j^{(i)}=1,y^{(i)}=1 \rbrace}{\Sigma_{i=1}^{m}I \lbrace y^{(i)=1} \rbrace}\\ \phi_{j|y=0}=\frac{\Sigma_{i=1}^{m}I \lbrace x_j^{(i)}=0,y^{(i)}=0 \rbrace}{\Sigma_{i=0}^{m}I \lbrace y^{(i)=0} \rbrace}\\
+\phi_y=\frac{\Sigma_{i=1}^{m}I\lbrace y^{(i)=1} \rbrace}{m} $$
+那么分类器再收到一个新邮件$x$时，即可通过贝叶斯公式判断出该邮件是否是垃圾邮件。
+$$y=arg\underset{y}max\ p(y|x)=arg\underset{y}max \ \frac{p(x|y)p(y)}{p(x)}=arg\underset{y}max\ p(x|y)p(y)\\p(x|y)=\Pi_{i=1}^{m}p(x_i|y=1)$$
+#**拉普拉斯平滑**
+如果新收到的邮件出现了一个新单词，为了防止计算出的概率为0，我们在分子分母上都加上一个常数，进行拉普拉斯平滑,其中K是类的个数。
+$$p(y=c_k)=\frac{\Sigma_{i=1}^{m}I \lbrace y_i=c_k \rbrace+\lambda}{m+K\lambda}$$
+对应于朴素贝叶斯方法中的修正是
+$$\phi_{j|y=1}=\frac{\Sigma_{i=1}^{m}I \lbrace x_j^{(i)}=1,y^{(i)}=1 \rbrace+1}{\Sigma_{i=1}^{m}I \lbrace y^{(i)=1} \rbrace+2}$$
