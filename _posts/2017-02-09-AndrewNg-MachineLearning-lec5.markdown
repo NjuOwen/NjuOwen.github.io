@@ -15,6 +15,8 @@ $$ y\sim Bernouli(\phi)\\x|y=0\sim N(\mu_0,\Sigma)\\x|y=1\sim N(\mu_1,\Sigma)$$
 $$\phi=\frac{I\lbrace y^{(i)}=1 \rbrace}{m}\\\mu_0=\frac{\Sigma_{i=1}^m (I\lbrace y^{(i)}=0\rbrace x^{(i)})}{\Sigma_{i=1}^m (I\lbrace y^{(i)}=0\rbrace}\\\mu_1=\frac{\Sigma_{i=1}^m (I\lbrace y^{(i)}=1\rbrace x^{(i)})}{\Sigma_{i=1}^m (I\lbrace y^{(i)}=1\rbrace}\\\Sigma=\frac{1}{m}\Sigma_{i=1}^{m}(x^{(i)}-\mu_{y^{(i)}})(x^{(i)}-\mu_{y^{(i)}})^T$$
 这样再根据训练样本，估计出先验概率以及高斯分布的均值和协方差矩阵，即可通过贝叶斯公式求出一个新样本分别属于两类的概率，通过比较取其大着，进而实现对样本的分类。
 $$p(y|x)=\frac{p(x|y)p(y)}{p(x)}\\N(x|\mu,\Sigma)=\frac{1}{(2\pi)^{\frac{D}{2}}}\frac{1}{|\Sigma|^{\frac{1}{2}}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}\\y=arg\underset{y}max\ p(y|x)=arg\underset{y}max \ \frac{p(x|y)p(y)}{p(x)}=arg\underset{y}max\ p(x|y)p(y)$$
+现用matlab中利用函数生成两组两维高斯分布的数据，再给定一测试点，利用高斯判别分析对测试点进行分类
+![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2018-02-08-AndrewNg-MachineLearning-lec5/GDA.JPG)
 matlab代码如下:
 ```matlab
 clc,clear
@@ -65,3 +67,10 @@ plot(data1(1,:),data1(2,:),'*');
 plot(test(1),test(2),'bh');
 
 ```
+GDA的算法的分界面是一个线性分界面$Ax=b(x\in R^n)$,其中
+$$A=2\Sigma^{-1}(\mu_1-\mu_0)\\b=\mu_1^T\Sigma^{-1}\mu_1-\mu_0^T\Sigma^{-1}\mu_0+log\phi-log(1-\phi)$$
+实际上GDA只是逻辑回归的一个特例。两者效果比较:
+（1）逻辑回归是基于弱假设推导的，则其效果更稳定，使用范围更广
+（2）当数据服从高斯分布时，GDA效果更好
+（3）当训练样本数很大时，根据中心极限定理，数据将无限逼近于高斯分布，则此时GDA的表现效果会很好
+#**朴素贝叶斯方法**
