@@ -16,7 +16,7 @@ categories: [Naive Bayes,Neural Network,Maximum Margin Classifier]
 $$
 P(X_1=x_1,\cdots,X_k=x_k)=
 \begin{cases}\frac{n!}{x_1!\cdots x_k!}{p_1^{x_1}\cdots p_k^{x_k}}\ &\text{when$\ \Sigma_{i=1}^{k}x_i=n$ }\\
-[2ex]0 &\text{o.w.}
+0 &\text{o.w.}
 \end{cases}\\
 $$
 离散化举例:将住房面积这个特征划分为离散的数值
