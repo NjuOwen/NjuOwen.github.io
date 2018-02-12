@@ -19,7 +19,9 @@ P(X_1=x_1,\cdots,X_k=x_k)=
 [2ex]0 &\text{o.w.}
 \end{cases}
 $$
+
 离散化举例:将住房面积这个特征划分为离散的数值
+
 $$
 \begin{array}{c|c}
 Living\ area & <500 & 500\sim1000 & 1000\sim1500& >1500\\
