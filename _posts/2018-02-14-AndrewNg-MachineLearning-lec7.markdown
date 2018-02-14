@@ -67,6 +67,7 @@ $$
 令L(w,b,\alpha)=\frac{1}{2}w^Tw-\Sigma_{i=1}^{m}\alpha_i(y^{(i)}(w^Tx^{(i)}+b)-1)
 $$
 为了找到$\theta$的最小值，求导
+
 令$\nabla_wL(w,b,\alpha)=0$，得$w^* =\Sigma_{i=1}^m\alpha_iy^{(i)}x^{(i)}$,将$w$代入$L$，得
 $$\theta=\Sigma_{i=1}^m\alpha_i-\frac{1}{2}\Sigma_{i=1}^m\Sigma_{j=1}^my^{(i)}y^{(j)}\alpha_i\alpha_j<x^{(i)}x^{(j)}>
 $$
