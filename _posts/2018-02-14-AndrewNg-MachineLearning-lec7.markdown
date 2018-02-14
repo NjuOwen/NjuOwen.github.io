@@ -49,8 +49,7 @@ $$
 $$
 当满足Slater条件时，$d^* = p^* $,这种情况称为强对偶性质。此时，对偶问题的最优点$\lambda^* ,\mu^* $对应的最优值$d^* =\theta(\lambda^* ,\mu^* )=p^* $。
 $$
-\theta(\lambda^* ,\mu^* )=i\underset{x}nf\ L(x,\lambda^* ,\mu^* )=f(x^* )+\Sigma_{i=1}^m\lambda_i^* g_i(x^* )+\Sigma_{i=1}^p\mu_i^* h_i(x^* )\\
-\ \ \ \overset{(1)}=f(x^* )=p^*
+\theta(\lambda^* ,\mu^* )=i\underset{x}nf\ L(x,\lambda^* ,\mu^* )=f(x^* )+\Sigma_{i=1}^m\lambda_i^* g_i(x^* )+\Sigma_{i=1}^p\mu_i^* h_i(x^* )\overset{(1)}=f(x^* )=p^*
 $$
 从等号(1)可以看出$\Sigma_{i=1}^m\lambda_i^* g_i(x^* )=0$因为规定$\lambda_i\geq0$，所以有$\forall i,\lambda_i^* g_i(x^* )=0$这被称为“互补性条件”。也就是说$\lambda_i^* $和$g_i(x^* )$每次必有一个为0。所以只有积极约束$(g_i(x^* )=0)$才可以得到不为0的对偶变量$\lambda$。
 
