@@ -2,7 +2,7 @@
 layout: post
 title:  "AndrewNg-MachineLearning-Lecture7"
 subtitle: “最优间隔分类器 对偶问题 支持向量机”
-date:   2018-02-12
+date:   2018-02-14
 categories: [Optimal Margin Classifier,Dual Optimization,SVM]
 
 ---
