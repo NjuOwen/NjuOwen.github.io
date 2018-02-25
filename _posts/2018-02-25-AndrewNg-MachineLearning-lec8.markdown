@@ -88,4 +88,6 @@ else
 end
 ```
 西瓜数据集3.0$\alpha$
-![]()
+![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2018-02-25-AndrewNg-MachineLearning-lec8/dataset.JPG)
+训练结果
+![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2018-02-25-AndrewNg-MachineLearning-lec8/SVM.JPG)
