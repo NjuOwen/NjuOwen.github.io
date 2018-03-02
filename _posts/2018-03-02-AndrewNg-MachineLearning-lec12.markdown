@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "AndrewNg-MachineLearning-Lecture8"
+title:  "AndrewNg-MachineLearning-Lecture12"
 subtitle: “K-means聚类 EM算法 Jensen不等式”
 date:   2018-03-02
 categories: [Clustering,K-means,Expertation Maximitation,Jensen's inquality]
