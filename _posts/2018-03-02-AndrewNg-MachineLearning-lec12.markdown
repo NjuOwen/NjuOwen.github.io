@@ -101,3 +101,4 @@ $$
 E步：对于每一个$i$计算$Q_i(z^{(i)})=p(z^{(i)}|x^{(i)};\theta)$
 M步：计算$\theta:=argmax_{\theta}\Sigma_i \Sigma_{z^{(i)}}Q_i(z^{(i)})log\frac{p(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}$
 重复E步和M步直到收敛。这也可以看作是坐标上升法，E步固化$\theta$优化$Q_i$,M步固化$Q_i$优化$\theta$。
+![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2018-03-02-AndrewNg-MachineLearning-lec12/EM.png)
