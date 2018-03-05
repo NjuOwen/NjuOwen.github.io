@@ -86,5 +86,18 @@ ylabel('含糖率');
 #**Jensen不等式**
 
 为了解决之后的EM的问题，这里先介绍Jensen不等式。对于凸函数$f(x)$(即$f''(x)\geq0$)和随机变量$X$,则有$f(EX)\leq E[f(x)]$。而如果$f(x)$是严格凸函数(即f''(x)>0)，那么当且仅当$X=E[X]$时，$E[F(X)]=f(EX)$
+而如果$f(x)$是凹函数,那么不等号方向反向即可,$E[f(X)]\leq f(EX)$。
 
 #**EM算法**
+
+如果有一个模型$p(x,z;\theta)$,但是给定的训练样本只有$\lbrace x^{(1)},\cdots,x^{m} \rbrace$,变量$z$是隐形的无法观察得到。它的极大似然估计函数是$l(\theta)=\Sigma_{i=1}^m logp(x^{(i)};\theta)=\Sigma_{i=1}^m log\Sigma_{z^{(i)}}p(x^{(i)},z^{(i)};\theta)$,因为有隐藏变量$z$的存在,直接求$\theta$比较困难。
+EM算法是一种解决存在隐含变量优化问题的有效方法,它通过不断优化$l(\theta)$的下界(M步),再优化下界(M步)，最终得到$l(\theta)$的最大值。
+现在假设$Q_i$表示隐含变量$z$的某种分布,且$Q_i$满足条件$\Sigma_{z^{(i)}}Q_i(z^{(i)})=1,Q_i(z^{(i)})\geq0$,可见$Q_i$是概率密度函数。那么可以改写$l(\theta)$,并利用Jensen不等式构造下界。
+$$
+l(\theta)=\Sigma_i log\Sigma_{z^{(i)}}p(x^{(i)},z^{(i)};\theta)=\Sigma_i log\Sigma_{z^{(i)}}Q_i(z^{(i)})\frac{p(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}\geq\Sigma_i \Sigma_{z^{(i)}}Q_i(z^{(i)})log\frac{p(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}
+$$
+我们希望下界尽量紧贴$l\theta$,我们可以先使不等式取等，再优化$\theta$取得下界的最大值，再以更新的$\theta$使不等式取等，直到收敛，取得$l(\theta)的最大值$。Jensen不等式取等的条件是随机变量为常数，即$\frac{p(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}=c$而又有条件$\Sigma_{z^{(i)}}Q_i(z^{(i)})=1$，可以得到$\Sigma_{z^{(i)}}p(x^{(i)},z^{(i)};\theta)=c$。那么改写不等式取等条件$Q_i(z^{(i)})=\frac{p(x^{(i)},z^{(i)};\theta)}{\Sigma_{z^{(i)}}p(x^{(i)},z^{(i)};\theta)}=\frac{p(x^{(i)},z^{(i)};\theta)}{p(x^{(i)};\theta)}=p(z^{(i)}|x^{(i)};\theta)$可以得出Q_i就是后验概率。
+所以EM算法如下：
+E步：对于每一个$i$计算$Q_i(z^{(i)})=p(z^{(i)}|x^{(i)};\theta)$
+M步：计算$\theta:=argmax_{\theta}\Sigma_i \Sigma_{z^{(i)}}Q_i(z^{(i)})log\frac{p(x^{(i)},z^{(i)};\theta)}{Q_i(z^{(i)})}$
+重复E步和M步直到收敛。这也可以看作是坐标上升法，E步固化$\theta$优化$Q_i$,M步固化$Q_i$优化$\theta$。
