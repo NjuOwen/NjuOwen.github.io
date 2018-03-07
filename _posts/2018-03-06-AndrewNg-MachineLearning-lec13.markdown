@@ -84,3 +84,4 @@ end
 end
 ```
 最终将无标签的样本空间，按照指定的类别数分类。
+![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2018-03-06-AndrewNg-MachineLearning-lec13/EM_2d.JPG)
