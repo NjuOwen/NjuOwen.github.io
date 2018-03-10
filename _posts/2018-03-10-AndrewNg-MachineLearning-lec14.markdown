@@ -50,5 +50,6 @@ end
 xlabel('PC1');ylabel('PC2');zlabel('PC3');
 ```
 当选取最大的两个特征值对应的特征向量作基底时，可以保留原数据集97.76%的信息
-
+![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2018-03-10-AndrewNg-MachineLearning-lec14/PCA_2D.JPG)
 当选取最大的两个特征值对应的特征向量作基底时，可以保留原数据集99.48%的信息
+![](https://raw.githubusercontent.com/NjuOwen/NjuOwen.github.io/master/img/2018-03-10-AndrewNg-MachineLearning-lec14/PCA_3D.JPG)
